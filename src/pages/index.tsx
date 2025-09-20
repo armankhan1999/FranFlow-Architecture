@@ -37,10 +37,10 @@ export default function Home() {
                 <Link href="#overview" className="text-slate-600 hover:text-primary-600 transition-colors">
                   Overview
                 </Link>
-                <Link href="#client-view" className="text-slate-600 hover:text-primary-600 transition-colors">
+                <Link href="/client-view" className="text-slate-600 hover:text-primary-600 transition-colors">
                   Client View
                 </Link>
-                <Link href="#developer-view" className="text-slate-600 hover:text-primary-600 transition-colors">
+                <Link href="/developer-view" className="text-slate-600 hover:text-primary-600 transition-colors">
                   Developer View
                 </Link>
               </motion.div>
@@ -84,7 +84,7 @@ export default function Home() {
                 <div className="text-slate-600">Uptime SLA</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary-600 mb-2">30%</div>
+                <div className="text-3xl font-bold text-primary-600 mb-2">NA</div>
                 <div className="text-slate-600">Cost Reduction</div>
               </div>
               <div className="text-center">
