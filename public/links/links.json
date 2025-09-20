@@ -1,0 +1,34 @@
+[
+  {
+    "id": "sample-1",
+    "name": "FranFlow Architecture Figma",
+    "url": "https://figma.com/design/franflow-architecture",
+    "description": "Main UI/UX design system and component library for FranFlow",
+    "addedDate": "19/09/2025",
+    "category": "Design"
+  },
+  {
+    "id": "sample-2",
+    "name": "GitHub Repository For FranFlow Prototype",
+    "url": "https://github.com/chlnlzrh/franflow/tree/dev_arman",
+    "description": "Source code repository for FranFlow architecture diagrams",
+    "addedDate": "19/09/2025",
+    "category": "Development"
+  },
+  {
+    "id": "sample-4",
+    "name": "Technical Requirements Doc",
+    "url": "https://docs.google.com/document/d/franflow-requirements",
+    "description": "Complete technical requirements specification document",
+    "addedDate": "19/09/2025",
+    "category": "Documentation"
+  },
+  {
+    "id": "1758291098837vo0d1h13p",
+    "name": "Activity Diagram",
+    "url": "https://mermaid.live/view#pako:eNqFlm9v4jgQxr-KFWlXexJtCSUtzYuVaFjuqpZerylX6YS0MskQrCY2ZzvluKrf_cZ2-BcCx4vSkF_G4-eZGefDS0QKXugp-LsEnsCA0UzSYsIJfhZUapawBeWajAlVZKxAkm8DJiHRQv5ySI1eDTYSU5YDeYXpIdF_ujOI-fqValjS1SFzOxzuhMGrQ-QhNsQD0JTEIN9ZAofMvY1yT2dv9PDmow3wKDSbsYRqJvjxQINbwz4JpTMJ8R8Ph8TzwBDPkDJFIprMG4JEI4NENGcFLpeQ6Hk04Q7DLICId9R23IpGodtWRBe6lEC-khHlNIMCMMgwF8v1U1--VKAEl_9MigJh-Qaa8cxBxikis-m3TrfdIp1uD_8EQeXcZm3JsrkmYob-Vav3Sy3OqhS28PD27Pt3tC4kj7AkuQHtokOawFSIN9JPtzBySD_EIXn6PX4hFwZXF4nJdifkQ4zQ4DYkdxyLS7ugmLWQKVkyPSdKlDKpP3A_xKjlNGdqbvO1GkBK4B1V2rL3Q2QfMYMX3GGG-i4hT0QBJB7FFz8KyvIa20d2vEgxFkHR8xUapRwCPN0RHi0pae6k2tpTlzwI1pJ320clH4d70X5wLVdbdoxJGVPwZ5M-zd_OGLcibZnR69oVJzRdsIt33-ldtwObKSR_YhHaPX4lWlKuZkIWWxCRyjenqrPEekGVYhkv9jTeGBjjSNiFNXCs-58srbHPg9D1iGMxEXrC3ZqjeH-9CyvX3QA3oTTVpdrfQaVbXCYJKIWmqIXACttTDRlUP56LJUkEnzFZ2EZqMtw1RW37teZydp90ujHMZt9G8_5ika92hCayzEE1yL0uU0tC-lOL_-mRfkU2tIcdg6tNLCPobLazjdgp9VRiKL4zMpuUuqd8Sjm5FRQ72CXZ3Bft06MI1xtImjnJtDAtTPPDxrCMLaQEF2xsiv5L9Nt6_Hyw9POiXi87rfEkha0Xh5BkTnkGTb1RyW9Xrsere1QFw25jBeBFsWhoiTv-vm7LZHuC7LkZ2ziRzenkrMNhIqFgPMWZoUCXi-NjDgsfDx5lzo8CtDwy735wKfLc1mO84snx8j9tqDuv7IpaGVNjXaZ7u1jbao4xc166heHEtNvxFSx80lfYbKRx4LnUTGZNYN3X4-Ybt7aaVadTzYR451zClwGiNsKaT2zCmJeBaggrp1R1NG65aHRWxaq0xJFYi7JbibjGQcbxpr7wbiSKRQ6bbLEMvJaXSZZ6oZYltLwCcEyaS-_DIBNPz_Hwm3gh_pvCjJa5nngT_omP4XvPX0IU6yelKLO5F85orvCqtBlV75sbBEzNRqLk2gs7vZ6N4YUf3j9eeBm0z7HSer2by3bQuexct7yVF551_PZ5txv4QdcPrvyb3s1ny_vXruqfX176V1dd__rq2vdv_CD4_A8OVEhZ",
+    "description": "",
+    "addedDate": "19/9/2025",
+    "category": "Architecture"
+  }
+]
