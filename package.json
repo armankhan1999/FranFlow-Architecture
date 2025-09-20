@@ -9,6 +9,10 @@
     "lint": "next lint",
     "export": "next export"
   },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
   "dependencies": {
     "formidable": "^3.5.4",
     "framer-motion": "^10.16.0",
