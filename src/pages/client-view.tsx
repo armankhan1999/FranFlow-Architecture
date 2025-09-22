@@ -71,8 +71,8 @@ export default function ClientView() {
     },
     {
       id: 'value-stream',
-      title: 'Value Stream',
-      description: 'Eight core business value streams that drive franchise success',
+      title: 'Core Features',
+      description: 'Essential Phase 1 MVP features for educational franchise operations',
       icon: Target,
       color: 'bg-gradient-to-r from-indigo-500 to-indigo-600',
       activeColor: 'bg-gradient-to-r from-indigo-700 to-indigo-800'
