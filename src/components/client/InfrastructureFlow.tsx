@@ -459,13 +459,13 @@ const performanceRequirements = [
 
 const successMetrics = [
   {
-    target: '30% Cost Per Lead Reduction',
+    target: 'Cost Per Lead Reduction',
     description: 'Reduce marketing costs through automation and optimization',
     icon: BarChart3,
     iconBg: 'bg-success-500'
   },
   {
-    target: '25% Lead-to-Trial Conversion Increase',
+    target: 'Lead-to-Trial Conversion Increase',
     description: 'Improve lead conversion through better management',
     icon: Users,
     iconBg: 'bg-primary-500'
