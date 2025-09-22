@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Cloud, Shield, Database, Smartphone, Globe, Zap, Lock, Users, ArrowRight, CheckCircle, AlertTriangle, BarChart3 } from 'lucide-react'
+import { Cloud, Shield, Database, Smartphone, Globe, Zap, Lock, Users, ArrowRight, CheckCircle, AlertTriangle, BarChart3, Code2, Server, Cpu } from 'lucide-react'
 
 const InfrastructureFlow = () => {
   return (
@@ -14,14 +14,14 @@ const InfrastructureFlow = () => {
         className="mb-12 text-center"
       >
         <h3 className="text-2xl font-bold text-slate-800 mb-4">
-          FranFlow System Infrastructure
+          FranFlow Technical Infrastructure & Tech Stack
         </h3>
         <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-          Enterprise-grade cloud platform designed for reliability, security, and scale across 180+ franchise locations
+          Production-ready technology stack and cloud infrastructure designed for Start Them Young LLC's educational franchise platform
         </p>
       </motion.div>
 
-      {/* User Access Layer */}
+      {/* Frontend Technology Stack */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -30,29 +30,35 @@ const InfrastructureFlow = () => {
         className="mb-12"
       >
         <h4 className="text-lg font-semibold text-slate-800 mb-6 flex items-center">
-          <Users className="w-5 h-5 mr-2 text-primary-600" />
-          Multi-Device Access & User Experience
+          <Code2 className="w-5 h-5 mr-2 text-primary-600" />
+          Frontend Technology Stack - Mobile-First PWA
         </h4>
         
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          {userAccessPoints.map((access, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          {frontendStack.map((tech, index) => (
             <motion.div
-              key={access.name}
+              key={tech.name}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.1 + (index * 0.1) }}
               viewport={{ once: true }}
-              className="diagram-node text-center"
+              className="diagram-node"
             >
-              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 mx-auto ${access.iconBg}`}>
-                <access.icon className="w-6 h-6 text-white" />
+              <div className="flex items-center mb-4">
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mr-4 ${tech.iconBg}`}>
+                  <tech.icon className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h5 className="font-semibold text-slate-800">{tech.name}</h5>
+                  <p className="text-sm text-slate-600">{tech.version}</p>
+                </div>
               </div>
-              <h5 className="font-semibold text-slate-800 mb-2">{access.name}</h5>
-              <p className="text-sm text-slate-600 mb-3">{access.description}</p>
+              
+              <p className="text-sm text-slate-600 mb-3">{tech.description}</p>
               <div className="space-y-2">
-                {access.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-center justify-center space-x-1 text-xs text-slate-500">
-                    <CheckCircle className="w-3 h-3 text-success-500" />
+                {tech.features.map((feature, idx) => (
+                  <div key={idx} className="flex items-start space-x-2 text-xs text-slate-700">
+                    <CheckCircle className="w-3 h-3 text-success-500 mt-0.5 flex-shrink-0" />
                     <span>{feature}</span>
                   </div>
                 ))}
@@ -60,16 +66,9 @@ const InfrastructureFlow = () => {
             </motion.div>
           ))}
         </div>
-        
-        <div className="flex justify-center">
-          <div className="flex items-center space-x-2 bg-gradient-to-r from-primary-50 to-secondary-50 px-4 py-2 rounded-full border border-primary-200">
-            <ArrowRight className="w-4 h-4 text-primary-600" />
-            <span className="text-sm font-medium text-primary-700">Secure Connection</span>
-          </div>
-        </div>
       </motion.div>
 
-      {/* Security & Authentication */}
+      {/* Backend Technology Stack */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -78,56 +77,45 @@ const InfrastructureFlow = () => {
         className="mb-12"
       >
         <h4 className="text-lg font-semibold text-slate-800 mb-6 flex items-center">
-          <Shield className="w-5 h-5 mr-2 text-success-600" />
-          Enterprise Security & Data Protection
+          <Server className="w-5 h-5 mr-2 text-success-600" />
+          Backend Technology Stack - Multi-Tenant Architecture
         </h4>
         
-        <div className="bg-gradient-to-r from-success-50 to-emerald-50 rounded-2xl p-6 mb-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {securityLayers.map((layer, index) => (
-              <motion.div
-                key={layer.name}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 + (index * 0.1) }}
-                viewport={{ once: true }}
-                className="bg-white rounded-xl p-4"
-              >
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-3 ${layer.iconBg}`}>
-                  <layer.icon className="w-5 h-5 text-white" />
-                </div>
-                <h5 className="font-semibold text-slate-800 mb-2">{layer.name}</h5>
-                <p className="text-sm text-slate-600 mb-3">{layer.description}</p>
-                <div className="space-y-1">
-                  {layer.features.map((feature, idx) => (
-                    <div key={idx} className="text-xs text-slate-500 bg-slate-50 rounded px-2 py-1">
-                      {feature}
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {complianceStandards.map((standard, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          {backendStack.map((tech, index) => (
             <motion.div
-              key={standard.name}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.3 + (index * 0.05) }}
+              key={tech.name}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 + (index * 0.1) }}
               viewport={{ once: true }}
-              className="text-center bg-white rounded-lg p-3 border border-success-200"
+              className="diagram-node"
             >
-              <div className="text-lg font-bold text-success-600 mb-1">{standard.name}</div>
-              <div className="text-xs text-slate-600">{standard.description}</div>
+              <div className="flex items-center mb-4">
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mr-4 ${tech.iconBg}`}>
+                  <tech.icon className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h5 className="font-semibold text-slate-800">{tech.name}</h5>
+                  <p className="text-sm text-slate-600">{tech.version}</p>
+                </div>
+              </div>
+              
+              <p className="text-sm text-slate-600 mb-3">{tech.description}</p>
+              <div className="space-y-2">
+                {tech.features.map((feature, idx) => (
+                  <div key={idx} className="flex items-start space-x-2 text-xs text-slate-700">
+                    <CheckCircle className="w-3 h-3 text-success-500 mt-0.5 flex-shrink-0" />
+                    <span>{feature}</span>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
       </motion.div>
 
-      {/* Cloud Infrastructure */}
+      {/* Google Cloud Platform Infrastructure */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -140,85 +128,41 @@ const InfrastructureFlow = () => {
           Google Cloud Platform Infrastructure
         </h4>
         
-        <div className="relative">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
-            {/* Application Layer */}
-            <div className="bg-gradient-to-br from-primary-50 to-blue-50 rounded-2xl p-6">
-              <h5 className="font-semibold text-slate-800 mb-4 flex items-center">
-                <Smartphone className="w-4 h-4 mr-2 text-primary-600" />
-                Application Layer
-              </h5>
-              <div className="space-y-4">
-                {applicationComponents.map((component, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${component.iconBg}`}>
-                      <component.icon className="w-4 h-4 text-white" />
-                    </div>
-                    <div>
-                      <div className="font-medium text-slate-800 text-sm">{component.name}</div>
-                      <div className="text-xs text-slate-600">{component.description}</div>
-                      <div className={`text-xs font-medium mt-1 ${component.statusColor}`}>
-                        {component.status}
-                      </div>
-                    </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {cloudInfrastructure.map((service, index) => (
+            <motion.div
+              key={service.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 + (index * 0.1) }}
+              viewport={{ once: true }}
+              className="diagram-node"
+            >
+              <div className="flex items-center mb-4">
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mr-4 ${service.iconBg}`}>
+                  <service.icon className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h5 className="font-semibold text-slate-800">{service.name}</h5>
+                  <p className="text-sm text-slate-600">{service.service}</p>
+                </div>
+              </div>
+              
+              <p className="text-sm text-slate-600 mb-3">{service.description}</p>
+              <div className="space-y-2">
+                {service.features.map((feature, idx) => (
+                  <div key={idx} className="flex items-start space-x-2 text-xs text-slate-700">
+                    <CheckCircle className="w-3 h-3 text-success-500 mt-0.5 flex-shrink-0" />
+                    <span>{feature}</span>
                   </div>
                 ))}
               </div>
-            </div>
-            
-            {/* Data Layer */}
-            <div className="bg-gradient-to-br from-warning-50 to-orange-50 rounded-2xl p-6">
-              <h5 className="font-semibold text-slate-800 mb-4 flex items-center">
-                <Database className="w-4 h-4 mr-2 text-warning-600" />
-                Data & Storage
-              </h5>
-              <div className="space-y-4">
-                {dataComponents.map((component, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${component.iconBg}`}>
-                      <component.icon className="w-4 h-4 text-white" />
-                    </div>
-                    <div>
-                      <div className="font-medium text-slate-800 text-sm">{component.name}</div>
-                      <div className="text-xs text-slate-600">{component.description}</div>
-                      <div className={`text-xs font-medium mt-1 ${component.statusColor}`}>
-                        {component.status}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Integrations */}
-            <div className="bg-gradient-to-br from-secondary-50 to-violet-50 rounded-2xl p-6">
-              <h5 className="font-semibold text-slate-800 mb-4 flex items-center">
-                <Globe className="w-4 h-4 mr-2 text-secondary-600" />
-                External Integrations
-              </h5>
-              <div className="space-y-4">
-                {integrationComponents.map((component, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${component.iconBg}`}>
-                      <component.icon className="w-4 h-4 text-white" />
-                    </div>
-                    <div>
-                      <div className="font-medium text-slate-800 text-sm">{component.name}</div>
-                      <div className="text-xs text-slate-600">{component.description}</div>
-                      <div className={`text-xs font-medium mt-1 ${component.statusColor}`}>
-                        {component.status}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
 
-      {/* Performance & Reliability */}
+      {/* Performance Requirements & Success Metrics */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -227,39 +171,39 @@ const InfrastructureFlow = () => {
       >
         <h4 className="text-lg font-semibold text-slate-800 mb-6 flex items-center">
           <Zap className="w-5 h-5 mr-2 text-warning-600" />
-          Performance Guarantees & Monitoring
+          Performance Requirements & Success Metrics
         </h4>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          {/* Performance Metrics */}
+          {/* Technical Performance Specs */}
           <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-6">
-            <h5 className="font-semibold text-slate-800 mb-4">System Performance</h5>
+            <h5 className="font-semibold text-slate-800 mb-4">Technical Performance Specs</h5>
             <div className="grid grid-cols-2 gap-4">
-              {performanceMetrics.map((metric, index) => (
+              {performanceRequirements.map((req, index) => (
                 <div key={index} className="text-center bg-white rounded-lg p-4">
-                  <div className={`text-2xl font-bold mb-1 ${metric.color}`}>{metric.value}</div>
-                  <div className="text-sm text-slate-600 mb-1">{metric.label}</div>
-                  <div className="text-xs text-success-600 font-medium">{metric.guarantee}</div>
+                  <div className={`text-2xl font-bold mb-1 ${req.color}`}>{req.value}</div>
+                  <div className="text-sm text-slate-600 mb-1">{req.label}</div>
+                  <div className="text-xs text-success-600 font-medium">{req.requirement}</div>
                 </div>
               ))}
             </div>
           </div>
           
-          {/* Monitoring & Alerts */}
+          {/* Business Success Metrics */}
           <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-6">
-            <h5 className="font-semibold text-slate-800 mb-4">24/7 Monitoring</h5>
+            <h5 className="font-semibold text-slate-800 mb-4">Business Success Metrics</h5>
             <div className="space-y-3">
-              {monitoringFeatures.map((feature, index) => (
+              {successMetrics.map((metric, index) => (
                 <div key={index} className="flex items-center space-x-3 bg-white rounded-lg p-3">
-                  <div className={`w-6 h-6 rounded-full flex items-center justify-center ${feature.statusBg}`}>
-                    <feature.icon className="w-3 h-3 text-white" />
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${metric.iconBg}`}>
+                    <metric.icon className="w-4 h-4 text-white" />
                   </div>
                   <div className="flex-1">
-                    <div className="font-medium text-slate-800 text-sm">{feature.name}</div>
-                    <div className="text-xs text-slate-600">{feature.description}</div>
+                    <div className="font-medium text-slate-800 text-sm">{metric.target}</div>
+                    <div className="text-xs text-slate-600">{metric.description}</div>
                   </div>
-                  <div className={`text-xs font-medium px-2 py-1 rounded-full ${feature.statusBg} text-white`}>
-                    Active
+                  <div className={`text-xs font-medium px-2 py-1 rounded-full bg-success-100 text-success-700`}>
+                    Target
                   </div>
                 </div>
               ))}
@@ -267,24 +211,24 @@ const InfrastructureFlow = () => {
           </div>
         </div>
         
-        {/* Technical Capabilities */}
-        <div className="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-2xl p-6 text-center">
-          <h5 className="text-lg font-semibold text-slate-800 mb-4">Technical Infrastructure Capabilities</h5>
+        {/* Compliance & Security Standards */}
+        <div className="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-2xl p-6">
+          <h5 className="text-lg font-semibold text-slate-800 mb-4 text-center">Security & Compliance Standards</h5>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            {technicalCapabilities.map((capability, index) => (
+            {complianceRequirements.map((compliance, index) => (
               <motion.div
-                key={capability.title}
+                key={compliance.name}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.4 + (index * 0.1) }}
                 viewport={{ once: true }}
-                className="bg-white rounded-xl p-4"
+                className="bg-white rounded-xl p-4 text-center"
               >
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3 mx-auto ${capability.iconBg}`}>
-                  <capability.icon className="w-6 h-6 text-white" />
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3 mx-auto ${compliance.iconBg}`}>
+                  <compliance.icon className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-sm font-semibold text-slate-800 mb-1">{capability.title}</div>
-                <div className="text-xs text-slate-600">{capability.description}</div>
+                <div className="text-sm font-semibold text-slate-800 mb-1">{compliance.name}</div>
+                <div className="text-xs text-slate-600">{compliance.description}</div>
               </motion.div>
             ))}
           </div>
@@ -294,227 +238,275 @@ const InfrastructureFlow = () => {
   )
 }
 
-// Data structures
-const userAccessPoints = [
+// Data structures based on client requirements
+const frontendStack = [
   {
-    name: 'Web Application',
-    description: 'Full-featured desktop experience',
-    icon: Globe,
+    name: 'React + Next.js',
+    version: 'React 18 + Next.js 14',
+    description: 'Modern frontend framework with server-side rendering',
+    icon: Code2,
     iconBg: 'bg-primary-500',
-    features: ['Complete dashboard', 'Advanced reporting', 'Bulk operations']
+    features: [
+      'TypeScript for type safety',
+      'Server-side rendering (SSR)',
+      'Automatic code splitting',
+      'API routes built-in',
+      'Image optimization'
+    ]
   },
   {
-    name: 'Mobile App (iOS/Android)',
-    description: 'Native mobile experience',
+    name: 'Progressive Web App (PWA)',
+    version: 'Workbox + Service Workers',
+    description: 'Mobile-first responsive design with offline capabilities',
     icon: Smartphone,
     iconBg: 'bg-success-500',
-    features: ['Offline capability', 'Push notifications', 'Camera integration']
+    features: [
+      'Installable on mobile devices',
+      'Offline functionality',
+      'Push notifications',
+      'Touch-optimized interface',
+      'Add to home screen'
+    ]
   },
   {
-    name: 'Progressive Web App',
-    description: 'Install on any device',
-    icon: Cloud,
-    iconBg: 'bg-warning-500',
-    features: ['Cross-platform', 'App-like feel', 'Auto-updates']
-  },
-  {
-    name: 'Tablet Interface',
-    description: 'Optimized for larger screens',
-    icon: BarChart3,
-    iconBg: 'bg-secondary-500',
-    features: ['Touch-optimized', 'Split-screen view', 'Presentation mode']
-  }
-]
-
-const securityLayers = [
-  {
-    name: 'Identity & Access',
-    description: 'Multi-factor authentication and role-based access control',
-    icon: Lock,
-    iconBg: 'bg-success-500',
-    features: ['2FA/MFA', 'SSO Integration', 'Role Management', 'Session Control']
-  },
-  {
-    name: 'Data Encryption',
-    description: 'End-to-end encryption for all data in transit and at rest',
-    icon: Shield,
-    iconBg: 'bg-primary-500',
-    features: ['AES-256 Encryption', 'TLS 1.3', 'Key Rotation', 'Zero-trust Model']
-  },
-  {
-    name: 'Compliance & Audit',
-    description: 'Full audit trails and compliance monitoring',
-    icon: BarChart3,
-    iconBg: 'bg-warning-500',
-    features: ['Activity Logging', 'Compliance Reports', 'Data Retention', 'COPPA Ready']
-  }
-]
-
-const complianceStandards = [
-  { name: 'COPPA', description: 'Child data protection' },
-  { name: 'PCI DSS', description: 'Payment security' },
-  { name: 'SOC 2', description: 'Security controls' },
-  { name: 'GDPR', description: 'Data privacy' }
-]
-
-const applicationComponents = [
-  {
-    name: 'Next.js Frontend',
-    description: 'React-based user interface',
+    name: 'TailwindCSS + UI Framework',
+    version: 'TailwindCSS v3 + Framer Motion',
+    description: 'Utility-first CSS framework with animations',
     icon: Globe,
-    iconBg: 'bg-primary-500',
-    status: 'Active - 99.9% Uptime',
-    statusColor: 'text-success-600'
-  },
-  {
-    name: 'API Gateway',
-    description: 'Centralized API management',
-    icon: Zap,
     iconBg: 'bg-warning-500',
-    status: 'Load Balanced',
-    statusColor: 'text-success-600'
-  },
-  {
-    name: 'Background Jobs',
-    description: 'Automated task processing',
-    icon: Smartphone,
-    iconBg: 'bg-secondary-500',
-    status: 'Queue Healthy',
-    statusColor: 'text-success-600'
+    features: [
+      'Mobile-first responsive design',
+      'Dark/light mode support',
+      'Custom component library',
+      'Smooth animations',
+      'Consistent design system'
+    ]
   }
 ]
 
-const dataComponents = [
+const backendStack = [
   {
-    name: 'PostgreSQL Database',
-    description: 'Primary application database',
+    name: 'Python FastAPI',
+    version: 'FastAPI v0.104 + Python 3.11',
+    description: 'High-performance API framework with multi-tenant architecture',
+    icon: Server,
+    iconBg: 'bg-success-500',
+    features: [
+      'OpenAPI/Swagger documentation',
+      'Multi-tenant middleware with tenant_id routing',
+      'JWT-based authentication',
+      'Real-time data validation with Pydantic',
+      'Async/await support for high performance'
+    ]
+  },
+  {
+    name: 'PostgreSQL + Row-Level Security',
+    version: 'PostgreSQL 15 with RLS',
+    description: 'Multi-tenant database with automatic data isolation',
     icon: Database,
     iconBg: 'bg-primary-500',
-    status: 'Multi-Zone Replica',
-    statusColor: 'text-success-600'
+    features: [
+      'Row-Level Security for tenant isolation',
+      'ACID compliance for data integrity',
+      'Advanced indexing and query optimization',
+      'Automated backups and point-in-time recovery',
+      'JSON/JSONB support for flexible data'
+    ]
   },
   {
-    name: 'Redis Cache',
-    description: 'High-speed data caching',
+    name: 'Redis + Celery',
+    version: 'Redis 7 + Celery 5',
+    description: 'Caching and background job processing',
     icon: Zap,
     iconBg: 'bg-warning-500',
-    status: 'Cluster Mode',
-    statusColor: 'text-success-600'
+    features: [
+      'High-speed data caching',
+      'Session management',
+      'Background job processing',
+      'Real-time task monitoring',
+      'Distributed task queue'
+    ]
   },
   {
-    name: 'File Storage',
-    description: 'Documents and media files',
-    icon: Cloud,
-    iconBg: 'bg-success-500',
-    status: 'CDN Enabled',
-    statusColor: 'text-success-600'
-  }
-]
-
-const integrationComponents = [
-  {
-    name: 'Meta Graph API',
-    description: 'Facebook/Instagram ads data',
+    name: 'WebSocket + Real-time Updates',
+    version: 'FastAPI WebSockets + Server-Sent Events',
+    description: 'Real-time communication for live updates',
     icon: Globe,
-    iconBg: 'bg-primary-500',
-    status: 'Connected',
-    statusColor: 'text-success-600'
-  },
-  {
-    name: 'Google Ads API',
-    description: 'Google advertising platform',
-    icon: BarChart3,
-    iconBg: 'bg-warning-500',
-    status: 'Active Sync',
-    statusColor: 'text-success-600'
-  },
-  {
-    name: 'Calimatic CRM',
-    description: 'Customer relationship management',
-    icon: Users,
     iconBg: 'bg-secondary-500',
-    status: 'Bi-directional',
-    statusColor: 'text-success-600'
+    features: [
+      'Real-time lead updates',
+      'Live dashboard synchronization',
+      'Instant notifications',
+      'Multi-user collaboration',
+      'Low-latency communication'
+    ]
   }
 ]
 
-const performanceMetrics = [
+const cloudInfrastructure = [
   {
-    label: 'API Response',
+    name: 'Google Cloud Run',
+    service: 'Container Runtime',
+    description: 'Serverless container platform with automatic scaling',
+    icon: Cloud,
+    iconBg: 'bg-primary-500',
+    features: [
+      'Automatic scaling 0 to 1000+ instances',
+      'Pay-per-use pricing model',
+      'HTTPS endpoints with custom domains',
+      'Regional deployment for low latency',
+      'Container-based deployment'
+    ]
+  },
+  {
+    name: 'Cloud SQL (PostgreSQL)',
+    service: 'Managed Database',
+    description: 'Fully managed PostgreSQL with high availability',
+    icon: Database,
+    iconBg: 'bg-success-500',
+    features: [
+      'Multi-zone high availability',
+      'Automated backups and point-in-time recovery',
+      'Read replicas for performance',
+      'Connection pooling',
+      'VPC private networking'
+    ]
+  },
+  {
+    name: 'Cloud Storage + CDN',
+    service: 'File Storage & Distribution',
+    description: 'Global file storage with content delivery network',
+    icon: Globe,
+    iconBg: 'bg-warning-500',
+    features: [
+      'Global CDN for fast file delivery',
+      'Automatic image optimization',
+      '99.999999999% durability',
+      'Lifecycle management',
+      'Multi-regional redundancy'
+    ]
+  },
+  {
+    name: 'Cloud Memorystore (Redis)',
+    service: 'Managed Cache',
+    description: 'Fully managed Redis for high-performance caching',
+    icon: Zap,
+    iconBg: 'bg-secondary-500',
+    features: [
+      'Sub-millisecond latency',
+      'High availability with automatic failover',
+      'VPC native for security',
+      'Redis 7.0 compatibility',
+      'Backup and import/export'
+    ]
+  },
+  {
+    name: 'Identity & Access Management',
+    service: 'Authentication & Authorization',
+    description: 'Enterprise-grade security and access control',
+    icon: Shield,
+    iconBg: 'bg-purple-500',
+    features: [
+      'OAuth2/JWT token management',
+      'Multi-factor authentication (MFA)',
+      'Role-based access control (RBAC)',
+      'Single sign-on (SSO) support',
+      'Audit logging and compliance'
+    ]
+  },
+  {
+    name: 'Cloud Monitoring & Logging',
+    service: 'Observability Platform',
+    description: '24/7 monitoring, alerting, and log management',
+    icon: BarChart3,
+    iconBg: 'bg-indigo-500',
+    features: [
+      'Real-time performance monitoring',
+      'Automated alerting and notifications',
+      'Centralized log aggregation',
+      'Custom dashboards and metrics',
+      'Error tracking and debugging'
+    ]
+  }
+]
+
+const performanceRequirements = [
+  {
+    label: 'API Response Time',
     value: '<200ms',
     color: 'text-primary-600',
-    guarantee: 'Guaranteed SLA'
+    requirement: 'Client Requirement'
   },
   {
-    label: 'Uptime',
+    label: 'System Uptime',
     value: '99.9%',
     color: 'text-success-600',
-    guarantee: 'Service Level'
+    requirement: 'SLA Guarantee'
   },
   {
     label: 'Concurrent Users',
     value: '1000+',
     color: 'text-warning-600',
-    guarantee: 'Load Tested'
+    requirement: 'Scale Target'
   },
   {
-    label: 'Data Backup',
-    value: '15min',
+    label: 'Franchise Scale',
+    value: '180+',
     color: 'text-secondary-600',
-    guarantee: 'Recovery Time'
+    requirement: 'Growth Target'
   }
 ]
 
-const monitoringFeatures = [
+const successMetrics = [
   {
-    name: 'System Health',
-    description: 'Real-time infrastructure monitoring',
-    icon: CheckCircle,
-    statusBg: 'bg-success-500'
-  },
-  {
-    name: 'Performance Alerts',
-    description: 'Proactive issue detection',
-    icon: AlertTriangle,
-    statusBg: 'bg-warning-500'
-  },
-  {
-    name: 'Security Monitoring',
-    description: 'Threat detection and prevention',
-    icon: Shield,
-    statusBg: 'bg-primary-500'
-  },
-  {
-    name: 'Usage Analytics',
-    description: 'User behavior and system metrics',
+    target: '30% Cost Per Lead Reduction',
+    description: 'Reduce marketing costs through automation and optimization',
     icon: BarChart3,
-    statusBg: 'bg-secondary-500'
-  }
-]
-
-const technicalCapabilities = [
-  {
-    title: 'Auto-Scaling Infrastructure',
-    description: 'Google Cloud Run with automatic scaling based on demand',
-    icon: Cloud,
-    iconBg: 'bg-primary-500'
-  },
-  {
-    title: 'Multi-Tenant Data Isolation',
-    description: 'PostgreSQL Row-Level Security ensures franchise data separation',
-    icon: Shield,
     iconBg: 'bg-success-500'
   },
   {
-    title: 'Real-time Synchronization',
-    description: 'WebSocket connections for live updates across all devices',
+    target: '25% Lead-to-Trial Conversion Increase',
+    description: 'Improve lead conversion through better management',
+    icon: Users,
+    iconBg: 'bg-primary-500'
+  },
+  {
+    target: '80% Manual Work Reduction',
+    description: 'Automate repetitive tasks and reporting processes',
     icon: Zap,
     iconBg: 'bg-warning-500'
   },
   {
-    title: 'API-First Architecture',
-    description: 'RESTful APIs with OpenAPI documentation for extensibility',
-    icon: Database,
+    target: 'December 15, 2025 MVP Launch',
+    description: '3-month development timeline for Phase 1 deliverable',
+    icon: CheckCircle,
+    iconBg: 'bg-secondary-500'
+  }
+]
+
+const complianceRequirements = [
+  {
+    name: 'COPPA Compliance',
+    description: 'Children\'s Online Privacy Protection',
+    icon: Shield,
+    iconBg: 'bg-success-500'
+  },
+  {
+    name: 'PCI DSS',
+    description: 'Payment Card Industry Security',
+    icon: Lock,
+    iconBg: 'bg-primary-500'
+  },
+  {
+    name: 'GDPR Ready',
+    description: 'European Data Privacy Regulation',
+    icon: Users,
+    iconBg: 'bg-warning-500'
+  },
+  {
+    name: 'SOC 2 Type II',
+    description: 'Security Audit Compliance',
+    icon: BarChart3,
     iconBg: 'bg-secondary-500'
   }
 ]
