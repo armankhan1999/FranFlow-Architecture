@@ -63,64 +63,73 @@ const BusinessFlowDiagram = () => {
     }
   ]
 
-  // Multi-Tenant Backend Infrastructure  
-  const backendSystems = [
+  // Lead Processing Workflow - Educational Franchise Business Process
+  const leadProcessFlow = [
     {
-      name: 'FastAPI with Multi-Tenant Middleware',
-      description: 'OpenAPI docs with tenant_id routing',
-      icon: Zap,
-      iconBg: 'bg-indigo-600'
+      name: 'Lead Capture',
+      description: 'Automated lead intake from all sources',
+      icon: Users,
+      iconBg: 'bg-blue-600',
+      actions: ['Real-time capture via APIs', 'Auto-assignment to LDRs', 'Welcome sequence triggered']
     },
     {
-      name: 'PostgreSQL + Row-Level Security',
-      description: 'Tenant isolation with automatic data segregation',
-      icon: Database,
-      iconBg: 'bg-blue-700'
+      name: 'Lead Contact',
+      description: 'Initial contact and qualification',
+      icon: Phone,
+      iconBg: 'bg-green-600',
+      actions: ['Call queue prioritization', 'Parent qualification', 'Trial booking scheduling']
     },
     {
-      name: 'Redis Cache & Sessions',
-      description: 'Tenant-aware caching and JWT session management',
-      icon: Database,
-      iconBg: 'bg-red-600'
+      name: 'Trial Scheduling',
+      description: 'Trial class coordination',
+      icon: CheckCircle,
+      iconBg: 'bg-orange-600',
+      actions: ['Available slot sync', 'Automated reminders', 'Instructor assignment']
     },
     {
-      name: 'Celery Background Workers',
-      description: 'Tenant-scoped job processing for reports and integrations',
-      icon: Zap,
-      iconBg: 'bg-green-700'
+      name: 'Enrollment Process',
+      description: 'Convert trial to enrollment',
+      icon: Shield,
+      iconBg: 'bg-purple-600',
+      actions: ['CRM handoff to Calimatic', 'Payment processing', 'Program assignment']
     }
   ]
 
-  // External Integrations
-  const integrations = [
+  // Automated Reporting Features - Based on Client Requirements
+  const reportingFeatures = [
     {
-      name: 'Calimatic CRM',
-      description: 'Bi-directional sync',
-      icon: Database,
-      iconBg: 'bg-slate-600'
+      name: 'Weekly Performance Reports',
+      description: 'Automated weekly business intelligence',
+      icon: BarChart3,
+      iconBg: 'bg-primary-600',
+      features: ['Lead performance summary', 'Conversion rate analysis', 'Marketing ROI tracking', 'Top performing sources']
     },
     {
-      name: 'Stripe Payments',
-      description: 'Payment processing',
+      name: 'Monthly Comprehensive Reports',
+      description: 'Detailed monthly analytics and trends',
       icon: CheckCircle,
-      iconBg: 'bg-purple-700'
+      iconBg: 'bg-success-600',
+      features: ['Business performance analysis', 'Staff performance metrics', 'Revenue attribution', 'Process efficiency insights']
     },
     {
-      name: 'Twilio SMS',
-      description: 'SMS notifications',
-      icon: Phone,
-      iconBg: 'bg-teal-600'
-    },
-    {
-      name: 'SendGrid Email',
-      description: 'Email automation',
+      name: 'Export & Distribution',
+      description: 'Multi-format report delivery',
       icon: Mail,
-      iconBg: 'bg-blue-500'
+      iconBg: 'bg-secondary-600',
+      features: ['PDF professional reports', 'Excel detailed exports', 'Automated email delivery', 'Dashboard sharing links']
     }
   ]
 
   return (
     <div className="glass-effect rounded-3xl p-8">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-bold text-slate-800 mb-4">
+          FranFlow Business Process Flow
+        </h2>
+        <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+          Complete educational franchise operations from multi-channel lead capture through enrollment and ongoing management
+        </p>
+      </div>
       {/* External Lead Sources */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -168,7 +177,7 @@ const BusinessFlowDiagram = () => {
         className="mb-12"
       >
         <h3 className="text-xl font-bold text-slate-800 mb-6 text-center">
-          FranFlow Core System Architecture
+          FranFlow Core System Components
         </h3>
         
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
@@ -200,7 +209,7 @@ const BusinessFlowDiagram = () => {
         </div>
       </motion.div>
 
-      {/* Backend Infrastructure */}
+      {/* Lead Processing Workflow */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -209,30 +218,45 @@ const BusinessFlowDiagram = () => {
         className="mb-12"
       >
         <h3 className="text-xl font-bold text-slate-800 mb-6 text-center">
-          Backend Infrastructure
+          Lead Processing Workflow
         </h3>
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          {backendSystems.map((system, index) => (
+          {leadProcessFlow.map((step, index) => (
             <motion.div
-              key={system.name}
+              key={step.name}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 + (index * 0.1) }}
               viewport={{ once: true }}
-              className="diagram-node text-center"
+              className="diagram-node text-center relative"
             >
-              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 mx-auto ${system.iconBg}`}>
-                <system.icon className="w-6 h-6 text-white" />
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 mx-auto ${step.iconBg}`}>
+                <step.icon className="w-6 h-6 text-white" />
               </div>
-              <h4 className="font-semibold text-slate-800 mb-2">{system.name}</h4>
-              <p className="text-sm text-slate-600">{system.description}</p>
+              <h4 className="font-semibold text-slate-800 mb-2">{step.name}</h4>
+              <p className="text-sm text-slate-600 mb-3">{step.description}</p>
+              
+              <div className="space-y-1">
+                {step.actions.map((action, idx) => (
+                  <div key={idx} className="flex items-center space-x-2 text-xs text-slate-500">
+                    <CheckCircle className="w-3 h-3 text-success-500" />
+                    <span>{action}</span>
+                  </div>
+                ))}
+              </div>
+              
+              {index < leadProcessFlow.length - 1 && (
+                <div className="hidden md:block absolute -right-3 top-1/2 transform -translate-y-1/2 z-10">
+                  <ArrowRight className="w-5 h-5 text-slate-400" />
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
       </motion.div>
 
-      {/* External Integrations */}
+      {/* Automated Reporting & Analytics */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -240,24 +264,33 @@ const BusinessFlowDiagram = () => {
         viewport={{ once: true }}
       >
         <h3 className="text-xl font-bold text-slate-800 mb-6 text-center">
-          External System Integrations
+          Automated Reporting & Analytics
         </h3>
         
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          {integrations.map((integration, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {reportingFeatures.map((feature, index) => (
             <motion.div
-              key={integration.name}
+              key={feature.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 + (index * 0.1) }}
               viewport={{ once: true }}
               className="diagram-node text-center"
             >
-              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 mx-auto ${integration.iconBg}`}>
-                <integration.icon className="w-6 h-6 text-white" />
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 mx-auto ${feature.iconBg}`}>
+                <feature.icon className="w-6 h-6 text-white" />
               </div>
-              <h4 className="font-semibold text-slate-800 mb-2">{integration.name}</h4>
-              <p className="text-sm text-slate-600">{integration.description}</p>
+              <h4 className="font-semibold text-slate-800 mb-2">{feature.name}</h4>
+              <p className="text-sm text-slate-600 mb-3">{feature.description}</p>
+              
+              <div className="space-y-1">
+                {feature.features.map((item, idx) => (
+                  <div key={idx} className="flex items-center space-x-2 text-xs text-slate-500">
+                    <BarChart3 className="w-3 h-3 text-primary-500" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
