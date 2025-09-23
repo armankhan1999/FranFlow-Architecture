@@ -150,7 +150,7 @@ const coreFeatures = [
   },
   {
     id: 4,
-    name: 'Automated Reporting Suite',
+    name: 'Automated Notification Suite',
     description: 'Weekly and monthly automated reports with email distribution',
     icon: FileText,
     iconBg: 'bg-indigo-600',
