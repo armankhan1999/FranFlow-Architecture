@@ -131,7 +131,7 @@ const coreFeatures = [
     priority: 'HIGH',
     components: [
       { 
-        name: '7-Step Franchise Registration Wizard',
+        name: 'Franchise Registration Wizard',
         description: 'Guided setup process for new franchise locations'
       },
       { 
