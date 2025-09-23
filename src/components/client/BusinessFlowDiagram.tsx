@@ -48,7 +48,7 @@ const BusinessFlowDiagram = () => {
       features: ['Meta Graph API integration', 'Google Ads API sync', 'Multi-touch attribution by franchise']
     },
     {
-      name: '7-Step Franchise Onboarding',
+      name: 'Franchise Onboarding',
       description: 'Multi-Location Registration Wizard',
       icon: Shield,
       iconBg: 'bg-success-600',
